@@ -3,14 +3,14 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - develop
+      - developer
       
 env:
   CI: false
 
 jobs:
   build:
-    name: Build
+    name: Builder
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
           path: ./build
 
   deploy:
-    name: Deploy
+    name: Deployer
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
